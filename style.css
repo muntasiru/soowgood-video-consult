@@ -190,6 +190,7 @@ main {
     bottom: 20px;
     right: 30px;
     border-radius: 6px;
+    z-index: 99;
 }
 
 .control-icon {

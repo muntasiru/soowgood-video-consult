@@ -13,6 +13,7 @@ const loadingState = document.getElementById("loading-state");
 const rejoinBtn = document.getElementById("rejoin-btn");
 const feedback = document.getElementById("feedback");
 const backHome = document.getElementById("back-home");
+const leaveBtn = document.getElementById("leave-btn");
 // const username = "Udoy";
 // const aptCode = "123456";
 // const user = "Doctor";
@@ -54,8 +55,10 @@ let handleMessageFromPeer = async (message, MemberId) => {
   if (message.text === "complete" && user === "patient") {
     // rejoinBtn.style.display = "block";
     feedback.style.display = "flex";
+    rejoinBtn.style.display = "none";
     await leaveCall();
   }
+
   if (message.text === "leave" && user === "patient") {
     rejoinBtn.style.display = "block";
     // feedback.style.display = "flex";
@@ -110,17 +113,21 @@ const leaveCall = async (from) => {
   // Leave the call for host user
   if (user == "doctor" && from == "complete") {
     RTclient.sendMessageToPeer({ text: "complete" }, rmUserId);
+    rejoinBtn.style.display = "block";
+    leaveBtn.style.display = "none";
     await client.leave();
-    // window.close();
-    backHome.style.display = "block";
+
+    // backHome.style.display = "block";
   }
   if (user == "doctor" && from == "leave") {
     rejoinBtn.style.display = "block";
+    leaveBtn.style.display = "none";
     RTclient.sendMessageToPeer({ text: "leave" }, rmUserId);
     await client.leave();
   }
   if (user == "patient") {
     rejoinBtn.style.display = "block";
+    leaveBtn.style.display = "none";
   }
 
   await client.leave();
@@ -160,7 +167,8 @@ document.getElementById("camera-btn").addEventListener("click", async () => {
     document.getElementById("camera-btn").style.backgroundColor = "#1f1f1f8e";
   }
 });
-document.getElementById("leave-btn").addEventListener("click", async () => {
+leaveBtn.addEventListener("click", async () => {
+  console.log("leave");
   leaveCall("leave");
 });
 
@@ -215,6 +223,7 @@ let joinStreams = async () => {
 
   //#9 Add user to user list of names/ids
   loadingState.style.display = "none";
+  leaveBtn.style.display = "block";
   //#10 - Publish my local video tracks to entire channel so everyone can see it
   await client.publish([localTracks.audioTrack, localTracks.videoTrack]);
   document.getElementById("footer").style.display = "flex";
@@ -262,7 +271,7 @@ let handleUserLeft = (user) => {
 rejoinBtn.addEventListener("click", async () => {
   // Hide the Rejoin button
   rejoinBtn.style.display = "none";
-
+  leaveBtn.style.display = "block";
   // Rejoin the call
   await joinStreams();
 });
