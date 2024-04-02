@@ -7,9 +7,9 @@ body {
 }
 
 main {
-    width: 1400px;
+    width: 1200px;
     margin: 0 auto;
-    height: 75vh;
+    height: 72vh;
 }
 
 #site-title {
@@ -25,6 +25,8 @@ main {
 #site-title img {
     max-width: 250px;
 }
+
+
 
 #join-wrapper {
     display: flex;
@@ -42,6 +44,43 @@ main {
     border-radius: 10px;
     border: none;
     margin: 10px;
+}
+
+
+@media (min-width:320px) and (max-width:575px) {
+
+    .volume-icon {
+        height: 16px !important;
+        width: 16px !important;
+    }
+
+    .control-icon {
+        padding: 10px !important;
+        height: 22px !important;
+        width: 22px !important;
+        border-radius: 7px !important;
+    }
+
+
+
+    .icon-wrapper p {
+        margin-top: 5px !important;
+    }
+
+    #footer {
+
+        bottom: -14px !important;
+
+    }
+
+    .user-uid {
+        font-size: 14px !important;
+    }
+
+    .leave-call-btn {
+        right: 10px !important;
+        padding: 8px 10px !important;
+    }
 }
 
 .volume-icon {
@@ -77,7 +116,7 @@ main {
 
 #user-streams {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     gap: 1em;
     height: 100%;
 }
@@ -109,15 +148,15 @@ main {
     display: flex;
     align-items: center;
     column-gap: 1em;
-    background-color: #30bced;
+    background-color: #0c0a26;
     padding: 5px 10px;
     border-radius: 5px;
     position: absolute;
-    bottom: 10px;
+    top: 10px;
     left: 10px;
     z-index: 9999;
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
@@ -136,12 +175,27 @@ main {
     justify-content: center;
     text-align: center;
     cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.leave-call-btn {
+    background: red;
+    padding: 8px 20px;
+    outline: none;
+    border: none;
+    color: white;
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    border-radius: 6px;
 }
 
 .control-icon {
     display: block;
     padding: 15px;
-    background-color: #30bced;
+    background-color: #1f1f1f8e;
     height: 30px;
     width: 30px;
     border-radius: 10px;
@@ -154,6 +208,10 @@ main {
         margin: 0 auto;
     }
 }
+
+
+
+
 
 .loading-state {
     position: absolute;
