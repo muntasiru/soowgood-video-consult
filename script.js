@@ -223,10 +223,10 @@ let joinStreams = async () => {
 
   //#9 Add user to user list of names/ids
   loadingState.style.display = "none";
-  leaveBtn.style.display = "block";
   //#10 - Publish my local video tracks to entire channel so everyone can see it
   await client.publish([localTracks.audioTrack, localTracks.videoTrack]);
   document.getElementById("footer").style.display = "flex";
+  leaveBtn.style.display = "block";
 };
 
 let handleUserJoined = async (user, mediaType) => {
