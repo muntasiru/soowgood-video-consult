@@ -1,0 +1,339 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #01204ef2;
+    color: aliceblue;
+    font-family: 'Poppins', sans-serif;
+}
+
+main {
+    width: 1400px;
+    margin: 0 auto;
+    height: 75vh;
+}
+
+#site-title {
+    font-family: 'Permanent Marker', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+
+}
+
+#site-title img {
+    max-width: 250px;
+}
+
+#join-wrapper {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#username {
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    margin: 10px;
+}
+
+.volume-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.rejoin-btn {
+    position: absolute;
+    background-color: #3e64a988;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#join-btn {
+
+    /* background-color: #30bced; */
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    padding: 20px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+
+#user-streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+    gap: 1em;
+    height: 100%;
+}
+
+/* #user-streams {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(25% - 0.5em), max-content));
+    gap: 1em;
+    height: 100%;
+} */
+
+.video-player {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.video-containers {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    /* background-color: #30bced; */
+    border-radius: 10px;
+
+}
+
+.user-uid {
+    display: flex;
+    align-items: center;
+    column-gap: 1em;
+    background-color: #30bced;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 9999;
+    margin: 0;
+    font-size: 18px;
+}
+
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: none;
+    justify-content: center;
+    column-gap: 1em;
+    width: 100%;
+    height: 100px;
+}
+
+.icon-wrapper {
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.control-icon {
+    display: block;
+    padding: 15px;
+    background-color: #30bced;
+    height: 30px;
+    width: 30px;
+    border-radius: 10px;
+}
+
+
+@media screen and (max-width:1400px) {
+    main {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+.loading-state {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+}
+
+.loading-state h1 {
+    font-weight: 600;
+}
+
+.loading-state p {
+    margin: 0;
+    text-align: center;
+    font-weight: 400;
+    color: white;
+}
+
+#feedback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* feedback */
+.container {
+    position: relative;
+    max-width: 400px;
+    background: #fffffff2;
+    padding: 20px 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container .post {
+    display: none;
+}
+
+.container .text {
+    font-size: 25px;
+    color: #1b1b1b;
+    font-weight: 500;
+}
+
+.container .edit {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: 16px;
+    color: #1b1b1b;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.container .edit:hover {
+    text-decoration: underline;
+}
+
+.container .star-widget input {
+    display: none;
+}
+
+.star-widget label {
+    font-size: 40px;
+    color: #1b1b1b;
+    padding: 10px;
+    float: right;
+    transition: all 0.2s ease;
+}
+
+input:not(:checked)~label:hover,
+input:not(:checked)~label:hover~label {
+    color: #30bced;
+}
+
+input:checked~label {
+    color: #30bced;
+}
+
+input#rate-5:checked~label {
+    color: rgb(235, 135, 54);
+
+}
+
+#rate-1:checked~form header:before {
+    content: "I just hate it ";
+}
+
+#rate-2:checked~form header:before {
+    content: "I don't like it ";
+}
+
+#rate-3:checked~form header:before {
+    content: "It is awesome ";
+}
+
+#rate-4:checked~form header:before {
+    content: "I just like it ";
+}
+
+#rate-5:checked~form header:before {
+    content: "I just love it ";
+}
+
+.container form {
+    display: none;
+}
+
+input:checked~form {
+    display: block;
+}
+
+form header {
+    width: 100%;
+    font-size: 18px;
+    color: #1b1b1b;
+    font-weight: 600;
+    margin: 5px 0 20px 0;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+form .textarea {
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+form .textarea textarea {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    color: #1b1b1b;
+    border: 1px solid #dbdbdb;
+    background: #e5e5e5;
+    padding: 10px;
+    font-size: 17px;
+    resize: none;
+}
+
+.textarea textarea:focus {
+    border-color: #d0d0d0;
+}
+
+form .btn {
+    height: 45px;
+    width: 100%;
+    margin: 15px 0;
+}
+
+form .btn button {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    background: #30bced;
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+}
+
+form .btn button:hover {
+    background: #1b1b1b;
+}

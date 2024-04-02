@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Agora Demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+
+  <body>
+    <main>
+      <div id="site-title">
+        <img src="./assets/SoowGood-Logo.png" alt="logo" />
+      </div>
+      <div id="user-streams"></div>
+
+      <div id="loading-state" class="loading-state">
+        <h1>Joining...</h1>
+        <p>Please allow your video & audio track.</p>
+      </div>
+
+      <button id="rejoin-btn" class="rejoin-btn" style="display: none">
+        Rejoin
+      </button>
+
+      <div id="back-home " class="rejoin-btn" style="display: none">
+        Back to home
+      </div>
+
+      <div id="feedback">
+        <div class="container">
+          <div class="post">
+            <div class="text">Thanks for rating us!</div>
+            <div class="edit">EDIT</div>
+          </div>
+          <div class="star-widget">
+            <input type="radio" name="rate" id="rate-5" />
+            <label for="rate-5" class="fas fa-star"></label>
+            <input type="radio" name="rate" id="rate-4" />
+            <label for="rate-4" class="fas fa-star"></label>
+            <input type="radio" name="rate" id="rate-3" />
+            <label for="rate-3" class="fas fa-star"></label>
+            <input type="radio" name="rate" id="rate-2" />
+            <label for="rate-2" class="fas fa-star"></label>
+            <input type="radio" name="rate" id="rate-1" />
+            <label for="rate-1" class="fas fa-star"></label>
+            <form action="#">
+              <header></header>
+              <div class="textarea">
+                <textarea
+                  cols="30"
+                  placeholder="Describe your experience.."
+                ></textarea>
+              </div>
+              <div class="btn">
+                <button type="submit">Post</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div id="review-card" style="display: none">
+        <h2>Doctor's Review</h2>
+      </div>
+      <div id="footer">
+        <div class="icon-wrapper">
+          <img class="control-icon" id="camera-btn" src="./assets/video.svg" />
+          <p>Cam</p>
+        </div>
+
+        <div class="icon-wrapper">
+          <img
+            class="control-icon"
+            id="mic-btn"
+            src="./assets/microphone.svg"
+          />
+          <p>Mic</p>
+        </div>
+
+        <div class="icon-wrapper">
+          <img class="control-icon" id="leave-btn" src="./assets/leave.svg" />
+          <p>Leave</p>
+        </div>
+
+        <div class="icon-wrapper" id="complete">
+          <img
+            class="control-icon"
+            id="complete-btn"
+            src="./assets/complete.svg"
+          />
+          <p>Complete</p>
+        </div>
+      </div>
+    </main>
+
+    <script src="https://download.agora.io/sdk/release/AgoraRTC_N.js"></script>
+    <script src="./PeerChat-master/agora-rtm-sdk-1.4.4.js"></script>
+    <script src="./feedback.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
