@@ -69,7 +69,7 @@ main {
 
     #footer {
 
-        bottom: -14px !important;
+        /* bottom: -14px !important; */
 
     }
 
@@ -187,7 +187,7 @@ main {
     border: none;
     color: white;
     position: absolute;
-    bottom: 20px;
+    bottom: 32px;
     right: 30px;
     border-radius: 6px;
     z-index: 99;
