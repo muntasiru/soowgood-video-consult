@@ -1,15 +1,16 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #01204ef2;
+    /* background-color: #01204ef2; */
     color: aliceblue;
     font-family: 'Poppins', sans-serif;
 }
 
 main {
-    width: 1200px;
+    /* width: 1200px; */
     margin: 0 auto;
-    height: 72vh;
+    height: 100vh;
+    width: 100%;
 }
 
 #site-title {
@@ -48,6 +49,9 @@ main {
 
 
 @media (min-width:320px) and (max-width:575px) {
+    main {
+        width: 100%;
+    }
 
     .volume-icon {
         height: 16px !important;
@@ -78,8 +82,13 @@ main {
     }
 
     .leave-call-btn {
-        right: 10px !important;
+        right: 32px !important;
         padding: 8px 10px !important;
+        cursor: pointer;
+    }
+
+    .leave-call-btn:hover {
+        background: #a71414;
     }
 }
 
@@ -140,7 +149,7 @@ main {
     padding: 0;
     margin: 0;
     /* background-color: #30bced; */
-    border-radius: 10px;
+
 
 }
 
@@ -187,8 +196,8 @@ main {
     border: none;
     color: white;
     position: absolute;
-    bottom: 32px;
-    right: 30px;
+    top: 10px;
+    right: 32px;
     border-radius: 6px;
     z-index: 99;
 }
@@ -227,13 +236,14 @@ main {
 
 .loading-state h1 {
     font-weight: 600;
+    color: #0c0a26;
 }
 
 .loading-state p {
     margin: 0;
     text-align: center;
     font-weight: 400;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 #feedback {
@@ -255,7 +265,7 @@ main {
     max-width: 400px;
     background: #fffffff2;
     padding: 20px 30px;
-    border-radius: 10px;
+
     display: flex;
     align-items: center;
     justify-content: center;
