@@ -239,11 +239,15 @@ let joinStreams = async (from) => {
   document.getElementById("footer").style.display = "flex";
 
   leaveBtn.style.display = "block";
+
   if (user == "patient" && from == "init") {
     waitingState.style.display = "block";
     setTimeout(() => {
       waitingState.style.display = "none";
     }, 10000);
+  }
+  if (user == "doctor" && from == "init") {
+    waitingState.style.display = "none";
   }
 };
 
