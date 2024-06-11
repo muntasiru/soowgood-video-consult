@@ -5,9 +5,9 @@ function getQueryParameter(name) {
 }
 
 // Get the username and aptCode from the URL
-// const username = getQueryParameter("username");
-// const aptCode = getQueryParameter("aptCode");
-// const user = getQueryParameter("c");
+const username = getQueryParameter("username");
+const aptCode = getQueryParameter("aptCode");
+const user = getQueryParameter("c");
 
 const loadingState = document.getElementById("loading-state");
 const rejoinBtn = document.getElementById("rejoin-btn");
@@ -15,9 +15,9 @@ const rejoinBtn = document.getElementById("rejoin-btn");
 const feedback = document.getElementById("feedback");
 const backHome = document.getElementById("back-home");
 const leaveBtn = document.getElementById("leave-btn");
-const username = "Udoy";
-const aptCode = "123456";
-const user = "Doctor";
+// const username = "Udoy";
+// const aptCode = "123456";
+// const user = "Doctor";
 
 //#1
 let client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
