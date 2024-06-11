@@ -1,15 +1,15 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #01204ef2;
-    color: aliceblue;
+    /* background-color: #01204ef2; */
+    color: rgb(70, 70, 70);
     font-family: 'Poppins', sans-serif;
 }
 
 main {
-    width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    height: 72vh;
+    height: 100vh;
 }
 
 #site-title {
@@ -148,7 +148,7 @@ main {
     display: flex;
     align-items: center;
     column-gap: 1em;
-    background-color: #0c0a26;
+    background-color: #181546;
     padding: 5px 10px;
     border-radius: 5px;
     position: absolute;
@@ -156,6 +156,7 @@ main {
     left: 10px;
     z-index: 9999;
     margin: 0;
+    color: white;
     font-size: 16px;
 }
 
@@ -233,7 +234,7 @@ main {
     margin: 0;
     text-align: center;
     font-weight: 400;
-    color: white;
+    color: rgb(56, 56, 56);
 }
 
 #feedback {
