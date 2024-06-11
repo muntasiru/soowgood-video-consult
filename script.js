@@ -5,18 +5,19 @@ function getQueryParameter(name) {
 }
 
 // Get the username and aptCode from the URL
-const username = getQueryParameter("username");
-const aptCode = getQueryParameter("aptCode");
-const user = getQueryParameter("c");
+// const username = getQueryParameter("username");
+// const aptCode = getQueryParameter("aptCode");
+// const user = getQueryParameter("c");
 
 const loadingState = document.getElementById("loading-state");
 const rejoinBtn = document.getElementById("rejoin-btn");
+// const backBtn = document.getElementById("rejoin-btn");
 const feedback = document.getElementById("feedback");
 const backHome = document.getElementById("back-home");
 const leaveBtn = document.getElementById("leave-btn");
-// const username = "Udoy";
-// const aptCode = "123456";
-// const user = "Doctor";
+const username = "Udoy";
+const aptCode = "123456";
+const user = "Doctor";
 
 //#1
 let client = AgoraRTC.createClient({ mode: "rtc", codec: "vp8" });
@@ -56,11 +57,14 @@ let handleMessageFromPeer = async (message, MemberId) => {
     // rejoinBtn.style.display = "block";
     feedback.style.display = "flex";
     rejoinBtn.style.display = "none";
+    // backBtn.style.display = "block";
     await leaveCall();
   }
 
   if (message.text === "leave" && user === "patient") {
     rejoinBtn.style.display = "block";
+    // backBtn.style.display = "block";
+
     // feedback.style.display = "flex";
     await leaveCall();
   }
@@ -214,7 +218,7 @@ let joinStreams = async () => {
                         <p class="user-uid"><i class="volume-icon fa fa-volume-up" id="volume-${config.uid}"> </i> ${config.uid}</p>
                         <div class="video-player player" id="stream-${config.uid}"></div>
                   </div>`;
-
+  let watingState = document.getElementById("waiting-state");
   document
     .getElementById("user-streams")
     .insertAdjacentHTML("beforeend", player);
@@ -223,10 +227,16 @@ let joinStreams = async () => {
 
   //#9 Add user to user list of names/ids
   loadingState.style.display = "none";
+
   //#10 - Publish my local video tracks to entire channel so everyone can see it
   await client.publish([localTracks.audioTrack, localTracks.videoTrack]);
   document.getElementById("footer").style.display = "flex";
+
   leaveBtn.style.display = "block";
+  document.getElementById("waiting-state").style.display = "block";
+  setTimeout(() => {
+    document.getElementById("waiting-state").style.display = "none";
+  }, 10000);
 };
 
 let handleUserJoined = async (user, mediaType) => {
@@ -270,10 +280,11 @@ let handleUserLeft = (user) => {
 };
 rejoinBtn.addEventListener("click", async () => {
   // Hide the Rejoin button
-  rejoinBtn.style.display = "none";
   leaveBtn.style.display = "block";
   // Rejoin the call
   await joinStreams();
 });
-
+// backBtn.addEventListener("click", async () => {
+//   window.location= "soowgood.com/d"
+// });
 joinStreams();
