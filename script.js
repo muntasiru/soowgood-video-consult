@@ -180,10 +180,14 @@ setTimeout(() => {
 }, 1000);
 
 //Method will take all my info and set user stream in frame
-let joinStreams = async () => {
+let joinStreams = async (from) => {
   //Is this place hear strategicly or can I add to end of method?
   config.uid = username;
-  loadingState.style.display = "block";
+  if (from == "init") {
+    loadingState.style.display = "block";
+  } else {
+    loadingState.style.display = "none";
+  }
 
   client.on("user-published", handleUserJoined);
   client.on("user-left", handleUserLeft);
@@ -284,13 +288,12 @@ let handleUserLeft = (user) => {
 };
 rejoinBtn.addEventListener("click", async () => {
   // Hide the Rejoin button
-
-  leaveBtn.style.display = "none";
-  waitingState.style.display = "none";
+  leaveBtn.style.display = "block";
+  rejoinBtn.style.display = "none";
   // Rejoin the call
-  await joinStreams();
+  await joinStreams("leave");
 });
 // backBtn.addEventListener("click", async () => {
 //   window.location= "soowgood.com/d"
 // });
-joinStreams();
+joinStreams("init");
