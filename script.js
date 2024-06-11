@@ -183,11 +183,6 @@ setTimeout(() => {
 let joinStreams = async (from) => {
   //Is this place hear strategicly or can I add to end of method?
   config.uid = username;
-  if (from == "leave") {
-    waitingState.style.display = "none";
-  } else {
-    waitingState.style.display = "block";
-  }
 
   client.on("user-published", handleUserJoined);
   client.on("user-left", handleUserLeft);
@@ -247,6 +242,9 @@ let joinStreams = async (from) => {
     setTimeout(() => {
       waitingState.style.display = "none";
     }, 10000);
+  }
+  if (from == "leave" && user == "patient") {
+    waitingState.style.display = "none";
   }
 };
 
