@@ -174,6 +174,7 @@ document.getElementById("camera-btn").addEventListener("click", async () => {
 });
 setTimeout(() => {
   leaveBtn.addEventListener("click", async () => {
+    waitingState.style.display = "none";
     leaveCall("leave");
   });
 }, 1000);
