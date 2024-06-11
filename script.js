@@ -239,7 +239,7 @@ let joinStreams = async (from) => {
   document.getElementById("footer").style.display = "flex";
 
   leaveBtn.style.display = "block";
-  if (user == "patient") {
+  if (user == "patient" && from == "init") {
     waitingState.style.display = "block";
     setTimeout(() => {
       waitingState.style.display = "none";
@@ -290,6 +290,7 @@ rejoinBtn.addEventListener("click", async () => {
   // Hide the Rejoin button
   leaveBtn.style.display = "block";
   rejoinBtn.style.display = "none";
+  waitingState.style.display = "none";
   // Rejoin the call
   await joinStreams("leave");
 });
