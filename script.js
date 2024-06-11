@@ -15,6 +15,7 @@ const rejoinBtn = document.getElementById("rejoin-btn");
 const feedback = document.getElementById("feedback");
 const backHome = document.getElementById("back-home");
 const leaveBtn = document.getElementById("leave-btn");
+const waitingState = document.getElementById("waiting-state");
 // const username = "Udoy";
 // const aptCode = "123456";
 // const user = "Doctor";
@@ -171,10 +172,11 @@ document.getElementById("camera-btn").addEventListener("click", async () => {
     document.getElementById("camera-btn").style.backgroundColor = "#1f1f1f8e";
   }
 });
-leaveBtn.addEventListener("click", async () => {
-  console.log("leave");
-  leaveCall("leave");
-});
+setTimeout(() => {
+  leaveBtn.addEventListener("click", async () => {
+    leaveCall("leave");
+  });
+}, 1000);
 
 //Method will take all my info and set user stream in frame
 let joinStreams = async () => {
@@ -233,9 +235,9 @@ let joinStreams = async () => {
 
   leaveBtn.style.display = "block";
   if (user == "patient") {
-    document.getElementById("waiting-state").style.display = "block";
+    waitingState.style.display = "block";
     setTimeout(() => {
-      document.getElementById("waiting-state").style.display = "none";
+      waitingState.style.display = "none";
     }, 10000);
   }
 };
@@ -281,7 +283,9 @@ let handleUserLeft = (user) => {
 };
 rejoinBtn.addEventListener("click", async () => {
   // Hide the Rejoin button
-  leaveBtn.style.display = "block";
+
+  leaveBtn.style.display = "none";
+  waitingState.style.display = "none";
   // Rejoin the call
   await joinStreams();
 });
