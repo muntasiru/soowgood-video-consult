@@ -183,6 +183,7 @@ setTimeout(() => {
 let joinStreams = async (from) => {
   //Is this place hear strategicly or can I add to end of method?
   config.uid = username;
+  loadingState.style.display = "block";
 
   client.on("user-published", handleUserJoined);
   client.on("user-left", handleUserLeft);
