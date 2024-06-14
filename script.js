@@ -74,7 +74,7 @@ let handleMessageFromPeer = async (message, MemberId) => {
 const checkUser = async () => {
   let completeBtn = document.getElementById("complete-btn");
   let completeWrapper = document.getElementById("complete");
-  if (user == "patient") {
+  if (user == "patient" || user == "agent") {
     completeWrapper.style.display = "none";
   } else {
     completeBtn.addEventListener("click", async () => {
@@ -130,7 +130,7 @@ const leaveCall = async (from) => {
     RTclient.sendMessageToPeer({ text: "leave" }, rmUserId);
     await client.leave();
   }
-  if (user == "patient") {
+  if (user == "patient" || user == "agent") {
     rejoinBtn.style.display = "block";
     leaveBtn.style.display = "none";
   }
@@ -238,13 +238,13 @@ let joinStreams = async (from) => {
   if (user == "doctor") {
     waitingState.style.display = "none";
   }
-  if (user == "patient" && from == "init") {
+  if ((user == "patient" || user == "agent") && from == "init") {
     waitingState.style.display = "block";
     setTimeout(() => {
       waitingState.style.display = "none";
     }, 10000);
   }
-  if (from == "leave" && user == "patient") {
+  if (from == "leave" && (user == "patient" || user == "agent")) {
     waitingState.style.display = "none";
   }
 };
