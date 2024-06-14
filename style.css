@@ -10,6 +10,7 @@ main {
     width: 100%;
     margin: 0 auto;
     height: 90vh;
+    position: relative;
 }
 
 #site-title {
